@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/lblName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name des Spiels" />
+
+        <EditText
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/lblAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Altersempfehlung" />
+
+        <EditText
+            android:id="@+id/txtAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/lblNumberOfPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Anzahl der Spieler" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtMinNumberOfPlayers"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/txtMaxNumberOfPlayers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Laufzeit pro Runde" />
+
+        <EditText
+            android:id="@+id/txtDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/lblGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Genre" />
+
+        <Spinner
+            android:id="@+id/spinGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/spinnerGenre" />
+
+        <Button
+            android:id="@+id/btnCreateGame"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spiel hinzufügen" />
+
+        <Button
+            android:id="@+id/btnToMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zur Hauptseite" />
+
+        <Button
+            android:id="@+id/btnCreateToSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spiel(e) suchen" />
+
+        <Button
+            android:id="@+id/btnCreateToView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spiele anzeigen" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

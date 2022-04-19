@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-75dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/lblSearchAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welches Alter?" />
+
+        <EditText
+            android:id="@+id/txtSearchAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/lblSearchDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welche Länge soll das Spiel haben?" />
+
+        <EditText
+            android:id="@+id/txtSearchDuration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:id="@+id/lblSearchNumberOfPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wie viele Spieler?" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtSearchMinNumberOfPlayers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/txtSearchMaxNumberOfPlayers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblSearchGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welches Genre?" />
+
+        <Spinner
+            android:id="@+id/spinGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/spinnerGenre" />
+
+        <Button
+            android:id="@+id/btnSearchGames"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spiel(e) suchen" />
+
+        <Button
+            android:id="@+id/btnSearchToMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zur Hauptseite" />
+
+        <Button
+            android:id="@+id/btnSearchToCreate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spiel hinzufügen" />
+
+        <Button
+            android:id="@+id/btnSearchToView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Spiele anzeigen" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
