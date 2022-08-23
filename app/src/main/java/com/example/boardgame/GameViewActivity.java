@@ -8,12 +8,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import com.example.logic.BasicInformation;
+import com.example.logic.DBHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +26,8 @@ public class GameViewActivity extends AppCompatActivity implements View.OnClickL
 
     private Intent intent;
     private SQLiteDatabase database;
+    DBHandler databaseAdapter;
 
-    TextView lblViewName, lblViewAge, lblViewNumberOfPlayers, lblViewDuration, lblViewGenre;
     Button btnViewToMain, btnViewToCreate, btnViewToSearch, btnViewGames, btnSingleView;
     ListView lvShowGames;
 
@@ -32,12 +35,6 @@ public class GameViewActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_view);
-
-        lblViewName = findViewById(R.id.lblViewName);
-        lblViewAge = findViewById(R.id.lblViewAge);
-        lblViewNumberOfPlayers = findViewById(R.id.lblViewNumberOfPlayers);
-        lblViewDuration = findViewById(R.id.lblViewDuration);
-        lblViewGenre = findViewById(R.id.lblViewGenre);
 
         lvShowGames = findViewById(R.id.lvShowGames);
 
@@ -52,6 +49,18 @@ public class GameViewActivity extends AppCompatActivity implements View.OnClickL
         btnViewToSearch.setOnClickListener(this);
         btnViewGames.setOnClickListener(this);
         btnSingleView.setOnClickListener(this);
+
+        databaseAdapter = new DBHandler(this);
+        //SimpleCursorAdapter simpleCursorAdapter = databaseAdapter.populateListViewFromDB();
+//        lvShowGames.setAdapter(simpleCursorAdapter);
+//        lvShowGames.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Cursor cursor = (Cursor) simpleCursorAdapter.getItem(i);
+//                String name = cursor.getString(1);
+//                Toast.makeText(GameViewActivity.this, name, Toast.LENGTH_LONG).show();
+//            }
+//        });
     }
 
     @Override

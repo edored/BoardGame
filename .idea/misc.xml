@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/denni/StudioProjects/BoardGame/app/src/main/res/layout/activity_create.xml" value="0.33" />
+        <entry key="..\:/Users/denni/StudioProjects/BoardGame/app/src/main/res/layout/activity_game_view.xml" value="0.25" />
+        <entry key="..\:/Users/denni/StudioProjects/BoardGame/app/src/main/res/layout/activity_main.xml" value="0.3625" />
+        <entry key="..\:/Users/denni/StudioProjects/BoardGame/app/src/main/res/layout/single_item.xml" value="0.184375" />
         <entry key="app/src/main/res/layout/activit_search_game.xml" value="0.10729166666666666" />
         <entry key="app/src/main/res/layout/activity_create.xml" value="0.34476114908854166" />
         <entry key="app/src/main/res/layout/activity_game_view.xml" value="0.31231251592221465" />

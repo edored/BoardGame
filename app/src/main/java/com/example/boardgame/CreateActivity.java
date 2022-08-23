@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.example.logic.BasicInformation;
+import com.example.logic.DBHandler;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +28,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     EditText txtName, txtAge, txtMinNumberOfPlayers, txtMaxNumberOfPlayers, txtDuration;
     Spinner spinGenre;
 
-    private SQLiteDatabase database;
+    private DBHandler dbHandler;
     private Intent intent;
 
     @Override
@@ -45,6 +46,8 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         btnCreateGame = findViewById(R.id.btnCreateGame);
 
         btnCreateGame.setOnClickListener(this);
+
+        dbHandler = new DBHandler(CreateActivity.this);
     }
 
     @Override
@@ -68,27 +71,11 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
                 intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.btnCreateToSearch:
-                intent = new Intent(this, CreateActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.btnCreateToView:
-                intent = new Intent(this, GameViewActivity.class);
-                startActivity(intent);
-                break;
         }
     }
 
     public void fillDatabase(BasicInformation game) {
-        database = openOrCreateDatabase(game.getDatabaseName(), MODE_PRIVATE, null);
-        database.execSQL("INSERT INTO " + game.getDatabaseTableName() + " VALUES(" +
-                "'"+game.getName()+"', " +
-                "'"+game.getGenre()+"', " +
-                "'"+game.getAge()+"', " +
-                "'"+game.getMinNumberOfPlayers()+"', " +
-                "'"+game.getMinNumberOfPlayers()+"', " +
-                "'"+game.getDuration()+"')");
-
-        database.close();
+        dbHandler.addNewGame(game);
+        Toast.makeText(CreateActivity.this, "Spiel wurde angelegt.", Toast.LENGTH_SHORT).show();
     }
 }
