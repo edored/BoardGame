@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.logic.BasicInformation;
+
 public class SingleGameViewActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Intent intent;

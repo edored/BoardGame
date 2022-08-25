@@ -1,9 +1,18 @@
 package com.example.logic;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.ContextWrapper;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.SimpleCursorAdapter;
+
+import com.example.boardgame.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHandler  extends SQLiteOpenHelper{
 
@@ -11,7 +20,7 @@ public class DBHandler  extends SQLiteOpenHelper{
     private static final String TABLE_NAME = "boardgames";
     // When you do change the structure of the database change the version number from 1 to 2
     private static final int DATABASE_VERSION = 1;
-    private static final String KEY_ROWID = "id";
+    private static final String KEY_ROWID = "_id";
     private static final String KEY_NAME="name";
     private static final String KEY_GENRE = "genre";
     private static final String KEY_AGE = "age";
@@ -73,6 +82,63 @@ public class DBHandler  extends SQLiteOpenHelper{
 
         db.close();
     }
+
+    @SuppressLint("Range")
+    public String[] getGameNames() {
+        List<String> nameList = new ArrayList<>();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor res = db.rawQuery( "select * from boardgames", null );
+        res.moveToFirst();
+        while(!res.isAfterLast()) {
+            nameList.add(res.getString(res.getColumnIndex("name")));
+            res.moveToNext();
+        }
+
+        String[] names = new String[ nameList.size() ];
+        nameList.toArray(names);
+
+        return names;
+    }
+
+    @SuppressLint("Range")
+    public BasicInformation getGame(int position) {
+        BasicInformation game = new BasicInformation();
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        int id = position + 1;
+
+        Cursor res = db.rawQuery( "select * from boardgames WHERE _id = ?", new String [] {String.valueOf(id)} );
+        res.moveToFirst();
+        game.setName(res.getString(res.getColumnIndex("name")));
+        game.setAge(res.getString(res.getColumnIndex("age")));
+        game.setDuration(res.getString(res.getColumnIndex("duration")));
+        game.setGenre(res.getString(res.getColumnIndex("genre")));
+        game.setMinNumberOfPlayers(res.getString(res.getColumnIndex("minNumberOfPlayers")));
+        game.setMaxNumberOfPlayers(res.getString(res.getColumnIndex("maxNumberOfPlayers")));
+
+        return game;
+    }
+
+//    public SimpleCursorAdapter populateListViewFromDB() {
+//        SQLiteDatabase db = DBHandler.getWritableDatabase();
+//        String columns[] = {DBHandler.KEY_ROWID, DBHandler.KEY_NAME, DBHandler.KEY_DURATION};
+//        Cursor cursor = db.query(DBHandler.TABLE_NAME, columns,null, null,null, null, null, null);
+//        String[] fromFieldNames = new String[]{
+//                DBHandler.KEY_ROWID, DBHandler.KEY_NAME, DBHandler.KEY_DURATION
+//        };
+//        int[] toViewIDs = new int[]{R.id.rowid, R.id.item_name, R.id.item_duration};
+//
+//        SimpleCursorAdapter gameAdapter = new SimpleCursorAdapter(
+//                null,
+//                R.layout.single_item,
+//                cursor,
+//                fromFieldNames,
+//                toViewIDs,
+//                0
+//        );
+//        return gameAdapter;
+//    }
 
 //    public SimpleCursorAdapter populateListViewFromDB(){
 //        SQLiteDatabase db = this.getWritableDatabase();

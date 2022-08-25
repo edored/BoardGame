@@ -1,7 +1,5 @@
 package com.example.boardgame;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
@@ -13,7 +11,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logic.BasicInformation;
 import com.example.logic.DBHandler;
@@ -51,16 +52,16 @@ public class GameViewActivity extends AppCompatActivity implements View.OnClickL
         btnSingleView.setOnClickListener(this);
 
         databaseAdapter = new DBHandler(this);
-        //SimpleCursorAdapter simpleCursorAdapter = databaseAdapter.populateListViewFromDB();
-//        lvShowGames.setAdapter(simpleCursorAdapter);
-//        lvShowGames.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Cursor cursor = (Cursor) simpleCursorAdapter.getItem(i);
-//                String name = cursor.getString(1);
-//                Toast.makeText(GameViewActivity.this, name, Toast.LENGTH_LONG).show();
-//            }
-//        });
+        String[] gameNames = databaseAdapter.getGameNames();
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.single_item, R.id.textView, gameNames);
+        lvShowGames.setAdapter(arrayAdapter);
+        lvShowGames.setOnItemClickListener((arg0, view, position, id) -> {
+            intent = new Intent(this, SingleGameViewActivity.class);
+            sendGameToActivity(intent, databaseAdapter.getGame(position));
+            startActivity(intent);
+            //TODO: angeklicktes Spiel liegt jetzt als singleGame vor und muss an die neue View weitergeleitet werden
+        });
     }
 
     @Override
