@@ -12,9 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.logic.BasicInformation;
 import com.example.logic.DBHandler;
 
-//Anzeige der vorhandenen Spiele
-public class GameViewActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class SearchViewActivity extends AppCompatActivity implements View.OnClickListener {
     private Intent intent;
     DBHandler databaseAdapter;
 
@@ -24,7 +22,9 @@ public class GameViewActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_view);
+        setContentView(R.layout.activity_search_view);
+
+        String[] gameNames = (String[]) getIntent().getExtras().get("gameNames");
 
         lvShowGames = findViewById(R.id.lvShowGames);
 
@@ -37,13 +37,12 @@ public class GameViewActivity extends AppCompatActivity implements View.OnClickL
         btnViewToSearch.setOnClickListener(this);
 
         databaseAdapter = new DBHandler(this);
-        String[] gameNames = databaseAdapter.getGameNames();
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.single_item, R.id.textView, gameNames);
         lvShowGames.setAdapter(arrayAdapter);
         lvShowGames.setOnItemClickListener((arg0, view, position, id) -> {
             intent = new Intent(this, SingleGameViewActivity.class);
-            sendGameToActivity(intent, databaseAdapter.getGame(id));
+            sendGameToActivity(intent, databaseAdapter.getGame(gameNames[position]));
             startActivity(intent);
         });
     }
@@ -74,16 +73,5 @@ public class GameViewActivity extends AppCompatActivity implements View.OnClickL
         intent.putExtra("gameMaxNumberOfPlayers", game.getMaxNumberOfPlayers());
         intent.putExtra("gameGenre", game.getGenre());
         return intent;
-    }
-
-    public BasicInformation generateFakeGame() {
-        BasicInformation game = new BasicInformation();
-        game.setName("Testpsiel");
-        game.setGenre("Testgenre");
-        game.setDuration(99);
-        game.setMinNumberOfPlayers(2);
-        game.setMaxNumberOfPlayers(8);
-        game.setAge(12);
-        return game;
     }
 }

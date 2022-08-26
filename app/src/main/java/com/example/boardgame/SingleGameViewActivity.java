@@ -8,13 +8,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.logic.BasicInformation;
-
 public class SingleGameViewActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Intent intent;
 
-    TextView lblSingleGameName, lblSingleGameAge, lblSingleGameDuration, lblSingleGameGenre, lblSingleGameNumberOfPlayers;
+    TextView lblSingleGameName, lblSingleGameAge, lblSingleGameDuration,
+            lblSingleGameGenre, lblSingleGameNumberOfPlayers;
     Button btnSingleGameToMain;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +30,6 @@ public class SingleGameViewActivity extends AppCompatActivity implements View.On
         btnSingleGameToMain = findViewById(R.id.btnSingleViewToMain);
 
         btnSingleGameToMain.setOnClickListener(this);
-
-
         loadData();
 
     }
@@ -41,7 +38,7 @@ public class SingleGameViewActivity extends AppCompatActivity implements View.On
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnSingleViewToMain:
-                intent = new Intent(this, SingleGameViewActivity.class);
+                intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
         }
@@ -49,9 +46,10 @@ public class SingleGameViewActivity extends AppCompatActivity implements View.On
 
     private void loadData() {
         lblSingleGameName.setText(getIntent().getExtras().get("gameName").toString());
-        lblSingleGameAge.setText(getIntent().getExtras().get("gameAge").toString());
-        lblSingleGameDuration.setText(getIntent().getExtras().get("gameDuration").toString());
+        lblSingleGameAge.setText("ab " + getIntent().getExtras().get("gameAge").toString() + " Jahren");
+        lblSingleGameDuration.setText(getIntent().getExtras().get("gameDuration").toString() + " min");
         lblSingleGameGenre.setText(getIntent().getExtras().get("gameGenre").toString());
-        lblSingleGameNumberOfPlayers.setText(getIntent().getExtras().get("gameMinNumberOfPlayers").toString() + " - " + getIntent().getExtras().get("gameMaxNumberOfPlayers").toString());
+        lblSingleGameNumberOfPlayers.setText(getIntent().getExtras().get("gameMinNumberOfPlayers").toString() + " - "
+                + getIntent().getExtras().get("gameMaxNumberOfPlayers").toString());
     }
 }

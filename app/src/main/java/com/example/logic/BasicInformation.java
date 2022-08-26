@@ -3,10 +3,10 @@ package com.example.logic;
 public class BasicInformation {
     private String name;
     private String genre;
-    private String age;
-    private String minNumberOfPlayers;
-    private String maxNumberOfPlayers;
-    private String duration;
+    private int age;
+    private int minNumberOfPlayers;
+    private int maxNumberOfPlayers;
+    private int duration;
 
     private final String databaseName = "boardgames.db";
     private final String databaseTableName = "boardgames";
@@ -14,7 +14,7 @@ public class BasicInformation {
     public BasicInformation() {
     }
 
-        public BasicInformation(String name, String age, String minNumberOfPlayers, String maxNumberOfPlayers, String duration, String genre) {
+        public BasicInformation(String name, int age, int minNumberOfPlayers, int maxNumberOfPlayers, int duration, String genre) {
         this.name = name;
         this.age = age;
         this.minNumberOfPlayers = minNumberOfPlayers;
@@ -39,35 +39,35 @@ public class BasicInformation {
         this.genre = genre;
     }
 
-    public String getAge    () {
+    public int getAge    () {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
-    public String getMinNumberOfPlayers() {
+    public int getMinNumberOfPlayers() {
         return minNumberOfPlayers;
     }
 
-    public void setMinNumberOfPlayers(String minNumberOfPlayers) {
+    public void setMinNumberOfPlayers(int minNumberOfPlayers) {
         this.minNumberOfPlayers = minNumberOfPlayers;
     }
 
-    public String getMaxNumberOfPlayers() {
+    public int getMaxNumberOfPlayers() {
         return maxNumberOfPlayers;
     }
 
-    public void setMaxNumberOfPlayers(String maxNumberOfPlayers) {
+    public void setMaxNumberOfPlayers(int maxNumberOfPlayers) {
         this.maxNumberOfPlayers = maxNumberOfPlayers;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
     }
 

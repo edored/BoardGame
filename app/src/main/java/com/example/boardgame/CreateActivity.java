@@ -1,25 +1,17 @@
 package com.example.boardgame;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-
-import com.example.logic.BasicInformation;
-import com.example.logic.DBHandler;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.View;
-
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.logic.BasicInformation;
+import com.example.logic.DBHandler;
 
 //Hinzufügen eines neuen Spiels
 public class CreateActivity extends AppCompatActivity implements View.OnClickListener  {
@@ -57,10 +49,10 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
                 //TODO: Validierung ob Felder gefüllt
                 BasicInformation game = new BasicInformation(
                         txtName.getText().toString(),
-                        txtAge.getText().toString(),
-                        txtMinNumberOfPlayers.getText().toString(),
-                        txtMaxNumberOfPlayers.getText().toString(),
-                        txtDuration.getText().toString(),
+                        Integer.parseInt(txtAge.getText().toString()),
+                        Integer.parseInt(txtMinNumberOfPlayers.getText().toString()),
+                        Integer.parseInt(txtMaxNumberOfPlayers.getText().toString()),
+                        Integer.parseInt(txtDuration.getText().toString()),
                         spinGenre.getSelectedItem().toString());
                 fillDatabase(game);
                 //TODO: Fenster einblenden das das Spiel hinzugefügt wurde, danach fragen ob weitere oder zum Home

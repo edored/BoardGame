@@ -2,8 +2,6 @@ package com.example.boardgame;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,16 +10,13 @@ import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.logic.BasicInformation;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.logic.DBHandler;
 
 //Suche nach Spielen bzw. Filtern nach bestimmten Eigenschaften
-public class SearchGameActivity extends AppCompatActivity implements View.OnClickListener{
+public class SearchGameActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Intent intent;
-    private SQLiteDatabase database;
+    DBHandler databaseAdapter;
 
     Spinner spinGenre;
     EditText txtSearchAge, txtSearchMinNumberOfPlayers, txtSearchMaxNumberOfPlayers, txtSearchDuration;
@@ -75,41 +70,16 @@ public class SearchGameActivity extends AppCompatActivity implements View.OnClic
     }
 
     @SuppressLint("Range")
-    private List<BasicInformation> searchGames(String minNumberOfPlayers, String maxNumberOfPlayers, String age, String duration, String genre) {
-        List<BasicInformation> games = new ArrayList<>();
-
-        database = openOrCreateDatabase("boardgames.db", MODE_PRIVATE, null);
-        //database.execSQL("SELECT * FROM boardgames");
-
-
-        Cursor res = database.rawQuery( "select * from boardgames WHERE genre = ? OR age >= ? OR duration = ? OR (minNumberOfPlayers >= ? AND maxNumberOfPlayers <= ?)", new String [] {genre, age, duration, minNumberOfPlayers, maxNumberOfPlayers} );
-        res.moveToFirst();
-        while(!res.isAfterLast()) {
-            BasicInformation basicInformation = new BasicInformation();
-            basicInformation.setName(res.getString(res.getColumnIndex("name")));
-            basicInformation.setAge(res.getString(res.getColumnIndex("age")));
-            basicInformation.setGenre(res.getString(res.getColumnIndex("genre")));
-            basicInformation.setMinNumberOfPlayers(res.getString(res.getColumnIndex("minNumberOfPlayers")));
-            basicInformation.setMaxNumberOfPlayers(res.getString(res.getColumnIndex("maxNumberOfPlayers")));
-            basicInformation.setDuration(res.getString(res.getColumnIndex("duration")));
-            games.add(basicInformation);
-
-            res.moveToNext();
-        }
-
-        database.close();
-
-
-        return games;
+    private void searchGames(String minNumberOfPlayers, String maxNumberOfPlayers, String age, String duration, String genre) {
+        databaseAdapter = new DBHandler(this);
+        String[] gameNames = databaseAdapter.getSearchGameNames(minNumberOfPlayers, maxNumberOfPlayers, age, duration, genre);
+        intent = new Intent(this, SearchViewActivity.class);
+        sendGameNamesToActivity(intent, gameNames);
+        startActivity(intent);
     }
 
-    private boolean checkConvertIntValue(String unconvertedValue) {
-        try {
-            Integer.parseInt(unconvertedValue);
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
+    public Intent sendGameNamesToActivity(Intent intent, String[] gameNames) {
+        intent.putExtra("gameNames", gameNames);
+        return intent;
     }
 }

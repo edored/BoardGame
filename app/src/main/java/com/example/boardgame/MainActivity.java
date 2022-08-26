@@ -1,14 +1,12 @@
 package com.example.boardgame;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.logic.BasicInformation;
 import com.example.logic.DBHandler;
 
 //Einstiegsseite

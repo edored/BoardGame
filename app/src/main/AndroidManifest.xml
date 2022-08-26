@@ -38,6 +38,11 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.BoardGame.NoActionBar"></activity>
+        <activity
+            android:name=".SearchViewActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.BoardGame.NoActionBar"></activity>
     </application>
 
 </manifest>
