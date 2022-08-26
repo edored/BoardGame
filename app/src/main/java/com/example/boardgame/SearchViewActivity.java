@@ -1,5 +1,6 @@
 package com.example.boardgame;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,7 @@ public class SearchViewActivity extends AppCompatActivity implements View.OnClic
     private Intent intent;
     DBHandler databaseAdapter;
 
-    Button btnViewToMain, btnViewToCreate, btnViewToSearch, btnViewGames, btnSingleView;
+    Button btnViewToMain, btnViewToCreate, btnViewToSearch;
     ListView lvShowGames;
 
     @Override
@@ -47,6 +48,7 @@ public class SearchViewActivity extends AppCompatActivity implements View.OnClic
         });
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -65,13 +67,12 @@ public class SearchViewActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    public Intent sendGameToActivity(Intent intent, BasicInformation game) {
+    public void sendGameToActivity(Intent intent, BasicInformation game) {
         intent.putExtra("gameName", game.getName());
         intent.putExtra("gameAge", game.getAge());
         intent.putExtra("gameDuration", game.getDuration());
         intent.putExtra("gameMinNumberOfPlayers", game.getMinNumberOfPlayers());
         intent.putExtra("gameMaxNumberOfPlayers", game.getMaxNumberOfPlayers());
         intent.putExtra("gameGenre", game.getGenre());
-        return intent;
     }
 }

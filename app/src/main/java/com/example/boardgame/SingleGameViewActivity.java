@@ -1,5 +1,6 @@
 package com.example.boardgame;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +10,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SingleGameViewActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private Intent intent;
 
     TextView lblSingleGameName, lblSingleGameAge, lblSingleGameDuration,
             lblSingleGameGenre, lblSingleGameNumberOfPlayers;
@@ -36,14 +35,13 @@ public class SingleGameViewActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btnSingleViewToMain:
-                intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
-                break;
+        if (view.getId() == R.id.btnSingleViewToMain) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void loadData() {
         lblSingleGameName.setText(getIntent().getExtras().get("gameName").toString());
         lblSingleGameAge.setText("ab " + getIntent().getExtras().get("gameAge").toString() + " Jahren");

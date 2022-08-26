@@ -1,5 +1,6 @@
 package com.example.boardgame;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,6 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
     Spinner spinGenre;
 
     private DBHandler dbHandler;
-    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         dbHandler = new DBHandler(CreateActivity.this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -56,7 +57,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
                         spinGenre.getSelectedItem().toString());
                 fillDatabase(game);
                 //TODO: Fenster einblenden das das Spiel hinzugefügt wurde, danach fragen ob weitere oder zum Home
-                intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btnToMain:

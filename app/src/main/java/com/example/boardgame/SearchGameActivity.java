@@ -44,6 +44,7 @@ public class SearchGameActivity extends AppCompatActivity implements View.OnClic
         btnSearchToView.setOnClickListener(this);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
         switch (view.getId()){
@@ -78,8 +79,7 @@ public class SearchGameActivity extends AppCompatActivity implements View.OnClic
         startActivity(intent);
     }
 
-    public Intent sendGameNamesToActivity(Intent intent, String[] gameNames) {
+    public void sendGameNamesToActivity(Intent intent, String[] gameNames) {
         intent.putExtra("gameNames", gameNames);
-        return intent;
     }
 }

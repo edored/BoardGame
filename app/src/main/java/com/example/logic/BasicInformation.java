@@ -8,9 +8,6 @@ public class BasicInformation {
     private int maxNumberOfPlayers;
     private int duration;
 
-    private final String databaseName = "boardgames.db";
-    private final String databaseTableName = "boardgames";
-
     public BasicInformation() {
     }
 
@@ -71,11 +68,4 @@ public class BasicInformation {
         this.duration = duration;
     }
 
-    public String getDatabaseName() {
-        return databaseName;
-    }
-
-    public String getDatabaseTableName() {
-        return databaseTableName;
-    }
 }
