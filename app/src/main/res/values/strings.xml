@@ -9,4 +9,29 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="zur_hauptseite">Zur Hauptseite</string>
+    <string name="spiel_hinzuf_gen">Spiel hinzufügen</string>
+    <string name="spiel_e_suchen">Spiel(e) suchen</string>
+    <string name="brettspiele_db">Brettspiele DB</string>
+    <string name="ein_neues_spiel_hinzuf_gen">Ein neues Spiel hinzufügen</string>
+    <string name="spiele_anzeigen">Spiele anzeigen</string>
+    <string name="generiere_testdaten">Generiere Testdaten</string>
+    <string name="welches_alter">Welches Alter?</string>
+    <string name="welche_l_nge_soll_das_spiel_haben">Welche Länge soll das Spiel haben?</string>
+    <string name="wie_viele_spieler">Wie viele Spieler?</string>
+    <string name="welches_genre">Welches Genre?</string>
+    <string name="name">Name:</string>
+    <string name="altersempfehlung">Altersempfehlung:</string>
+    <string name="laufzeit_pro_runde">Laufzeit pro Runde:</string>
+    <string name="anzahl_der_spieler">Anzahl der Spieler:</string>
+    <string name="genre">Genre:</string>
+    <string name="beschreibung">Beschreibung:</string>
+    <string name="todo">TODO</string>
+    <string name="risiko">Risiko</string>
+    <string name="beschreibung_des_spiels">Beschreibung des Spiels</string>
+    <string name="till">-</string>
+    <string name="_12">12</string>
+    <string name="_2">2</string>
+    <string name="_6">6</string>
+    <string name="_60">60</string>
 </resources>

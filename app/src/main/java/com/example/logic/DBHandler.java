@@ -7,8 +7,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,11 +54,6 @@ public class DBHandler  extends SQLiteOpenHelper{
     public void addNewGame(BasicInformation boardGame) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-
-//        FileInputStream fis = new FileInputStream("/storage/sdcard/demoImage.jpg");
-//        byte[] image= new byte[fis.available()];
-//        fis.read(image);
-
 
         values.put(KEY_NAME, boardGame.getName());
         values.put(KEY_AGE, boardGame.getAge());
@@ -238,13 +231,6 @@ public class DBHandler  extends SQLiteOpenHelper{
                 "\n" +
                 "Jetzt heißt es für alle Spieler aufgepasst: Wer nicht reaktionsschnell ist & mit blitzartigen Reflexen den auf den Stall zustürzenden Flieger mit seiner Wippe abwehrt, hat bald nicht mehr alle Hühner auf der Stange.", null));
 
-
-
-
-        //addNewGame(new BasicInformation("", 1, 2, 6, 90, "Strategiespiel", "", null));
-        //addNewGame(new BasicInformation("", 1, 2, 6, 90, "Strategiespiel", "", null));
-        //addNewGame(new BasicInformation("", 1, 2, 6, 90, "Strategiespiel", "", null));
-        //addNewGame(new BasicInformation("", 1, 2, 6, 90, "Strategiespiel", "", null));
         //addNewGame(new BasicInformation("", 1, 2, 6, 90, "Strategiespiel", "", null));
     }
 }

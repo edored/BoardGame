@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -16,33 +15,37 @@
             android:id="@+id/lblSearchAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welches Alter?" />
+            android:text="@string/welches_alter" />
 
         <EditText
             android:id="@+id/txtSearchAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/lblSearchDuration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welche Länge soll das Spiel haben?" />
+            android:text="@string/welche_l_nge_soll_das_spiel_haben" />
 
         <EditText
             android:id="@+id/txtSearchDuration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:autofillHints=""
+            tools:ignore="LabelFor" />
 
         <TextView
             android:id="@+id/lblSearchNumberOfPlayers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Wie viele Spieler?" />
+            android:text="@string/wie_viele_spieler" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,22 +57,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                tools:ignore="LabelFor"
+                android:autofillHints="" />
 
             <EditText
                 android:id="@+id/txtSearchMaxNumberOfPlayers"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                tools:ignore="LabelFor"
+                android:autofillHints="" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/lblSearchGenre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welches Genre?" />
+            android:text="@string/welches_genre" />
 
         <Spinner
             android:id="@+id/spinGenre"
@@ -81,25 +88,25 @@
             android:id="@+id/btnSearchGames"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Spiel(e) suchen" />
+            android:text="@string/spiel_e_suchen" />
 
         <Button
             android:id="@+id/btnSearchToMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Zur Hauptseite" />
+            android:text="@string/zur_hauptseite" />
 
         <Button
             android:id="@+id/btnSearchToCreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Spiel hinzufügen" />
+            android:text="@string/spiel_hinzuf_gen" />
 
         <Button
             android:id="@+id/btnSearchToView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Spiele anzeigen" />
+            android:text="@string/spiele_anzeigen" />
 
     </LinearLayout>
 

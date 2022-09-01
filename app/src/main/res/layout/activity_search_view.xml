@@ -14,25 +14,26 @@
             android:id="@+id/lvShowGames"
             android:layout_width="match_parent"
             android:layout_height="471dp"
-            android:clickable="true"/>
+            android:clickable="true"
+            android:focusable="true" />
 
         <Button
             android:id="@+id/btnViewToMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Zur Hauptseite" />
+            android:text="@string/zur_hauptseite" />
 
         <Button
             android:id="@+id/btnViewToCreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Spiel hinzufügen" />
+            android:text="@string/spiel_hinzuf_gen" />
 
         <Button
             android:id="@+id/btnViewToSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Spiel(e) suchen" />
+            android:text="@string/spiel_e_suchen" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -12,7 +12,7 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="Brettspiele DB"
+            android:text="@string/brettspiele_db"
             android:textAlignment="center"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -21,24 +21,24 @@
             android:id="@+id/btnToCreate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ein neues Spiel hinzufügen" />
+            android:text="@string/ein_neues_spiel_hinzuf_gen" />
 
         <Button
             android:id="@+id/btnToSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Spiel(e) suchen" />
+            android:text="@string/spiel_e_suchen" />
 
         <Button
             android:id="@+id/btnView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Spiele anzeigen" />
+            android:text="@string/spiele_anzeigen" />
 
         <Button
             android:id="@+id/btnCreateData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Generiere Testdaten" />
+            android:text="@string/generiere_testdaten" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

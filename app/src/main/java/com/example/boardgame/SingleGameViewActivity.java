@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.logic.DBHandler;
-
 public class SingleGameViewActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView lblSingleGameName, lblSingleGameAge, lblSingleGameDuration,
@@ -35,7 +33,7 @@ public class SingleGameViewActivity extends AppCompatActivity implements View.On
         lblSingleGameGenre = findViewById(R.id.lblSingleGameGenre);
         lblSingleGameNumberOfPlayers = findViewById(R.id.lblSingleGameNumberOfPlayers);
         lblSingleGameDescription = findViewById(R.id.lblSingleGameDescription);
-        imgSingleGame = (ImageView) findViewById(R.id.imageView2);
+        imgSingleGame = findViewById(R.id.imageView2);
 
         btnSingleGameToMain = findViewById(R.id.btnSingleViewToMain);
 
@@ -65,7 +63,7 @@ public class SingleGameViewActivity extends AppCompatActivity implements View.On
 
         //TODO: Hier das Bild (blob) noch auslesen
         SQLiteDatabase db = openOrCreateDatabase("boardgamesdb", MODE_PRIVATE, null);
-        Cursor cursor  = db.rawQuery("SELECT * FROM boardgames",null);
+        @SuppressLint("Recycle") Cursor cursor  = db.rawQuery("SELECT * FROM boardgames",null);
         while (cursor.moveToNext())
         {
             Toast.makeText(getApplicationContext(),cursor.getString(0),Toast.LENGTH_SHORT).show();

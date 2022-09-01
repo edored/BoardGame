@@ -44,7 +44,7 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         txtDescription = findViewById(R.id.txtDescription);
         spinGenre = findViewById(R.id.spinGenre);
         btnCreateGame = findViewById(R.id.btnCreateGame);
-        imgImage = (ImageView) findViewById(R.id.imageView);
+        imgImage = findViewById(R.id.imageView);
         imgImage.setImageResource(R.drawable.azul);
         btnCreateGame.setOnClickListener(this);
 
@@ -90,15 +90,4 @@ public class CreateActivity extends AppCompatActivity implements View.OnClickLis
         Toast.makeText(CreateActivity.this, "Spiel wurde angelegt.", Toast.LENGTH_SHORT).show();
     }
 
-    // convert from bitmap to byte array
-    public static byte[] getBytes(Bitmap bitmap) {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 0, stream);
-        return stream.toByteArray();
-    }
-
-    // convert from byte array to bitmap
-    public static Bitmap getImage(byte[] image) {
-        return BitmapFactory.decodeByteArray(image, 0, image.length);
-    }
 }

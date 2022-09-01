@@ -84,7 +84,4 @@ public class BasicInformation {
         return image;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
 }
