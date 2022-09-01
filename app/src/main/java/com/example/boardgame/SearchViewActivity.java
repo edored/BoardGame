@@ -74,5 +74,7 @@ public class SearchViewActivity extends AppCompatActivity implements View.OnClic
         intent.putExtra("gameMinNumberOfPlayers", game.getMinNumberOfPlayers());
         intent.putExtra("gameMaxNumberOfPlayers", game.getMaxNumberOfPlayers());
         intent.putExtra("gameGenre", game.getGenre());
+        intent.putExtra("description", game.getDescription());
+        intent.putExtra("image", game.getImage());
     }
 }

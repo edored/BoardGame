@@ -7,17 +7,21 @@ public class BasicInformation {
     private int minNumberOfPlayers;
     private int maxNumberOfPlayers;
     private int duration;
+    private String description;
+    private byte[] image;
 
     public BasicInformation() {
     }
 
-        public BasicInformation(String name, int age, int minNumberOfPlayers, int maxNumberOfPlayers, int duration, String genre) {
+        public BasicInformation(String name, int age, int minNumberOfPlayers, int maxNumberOfPlayers, int duration, String genre, String description, byte[] image) {
         this.name = name;
         this.age = age;
         this.minNumberOfPlayers = minNumberOfPlayers;
         this.maxNumberOfPlayers = maxNumberOfPlayers;
         this.duration = duration;
         this.genre = genre;
+        this.description = description;
+        this.image = image;
     }
 
     public String getName() {
@@ -68,4 +72,19 @@ public class BasicInformation {
         this.duration = duration;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
 }

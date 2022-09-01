@@ -75,5 +75,7 @@ public class GameViewActivity extends AppCompatActivity implements View.OnClickL
         intent.putExtra("gameMinNumberOfPlayers", game.getMinNumberOfPlayers());
         intent.putExtra("gameMaxNumberOfPlayers", game.getMaxNumberOfPlayers());
         intent.putExtra("gameGenre", game.getGenre());
+        intent.putExtra("description", game.getDescription());
+        intent.putExtra("image", game.getImage());
     }
 }
